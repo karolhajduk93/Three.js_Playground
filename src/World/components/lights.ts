@@ -1,7 +1,8 @@
 import { DirectionalLight, MathUtils } from "three";
 
 function createLights(){
-    const light = new DirectionalLight('#f7f781', 16); //yellowish
+    //const light = new DirectionalLight('#f7f781', 16); //yellowish
+    const light = new DirectionalLight('white', 16);
     //const light = new SpotLight('#f7f781', 7); //yellowish
 
     light.position.set(-10, 5, 10);

@@ -6,6 +6,7 @@ import { createScene } from './components/scene';
 import { createRenderer } from './systems/renderer';
 import { Resizer } from './systems/Resizer';
 import { Loop } from './systems/Loop';
+import { createControls } from './systems/controls';
 
 
 class World {
@@ -27,7 +28,7 @@ class World {
         const shape = createShape();
         const light = createLights();
 
-        this.loop.updatables.push(shape);
+        //this.loop.updatables.push(shape);
         //this.loop.updatables.push(this.camera);
         //this.loop.updatables.push(light);
      

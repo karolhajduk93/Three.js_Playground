@@ -30,7 +30,6 @@ private clock = new Clock();
         let delta = this.clock.getDelta();
 
         if(this.paused){
-            console.log(delta)
             delta = 0;
             this.paused = false;
         }

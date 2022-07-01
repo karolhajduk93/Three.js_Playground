@@ -8,11 +8,26 @@ function createCamera() {
         100 // far clipping plane
     );
 
+    let zoomOut = true;
+    let positionValue = 0
     camera.position.set(0, 0, 15);
 
     camera.tick = (delta) => {
-        camera.position.z += delta
+   
+        if(zoomOut){
+            positionValue = camera.position.z - 15 + 5*delta
+            if(positionValue > 30)
+                zoomOut = false;   
+        }
+        else{
+            positionValue = camera.position.z - 15 - 5*delta
+            if(positionValue < 0)
+                zoomOut = true; 
+        }
+        camera.position.z = positionValue + 15;
     }
+
+
 
     return camera;
 }
