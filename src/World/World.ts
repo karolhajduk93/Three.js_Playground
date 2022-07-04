@@ -23,16 +23,20 @@ class World {
         this.renderer = createRenderer()
         this.loop = new Loop(this.camera, this.scene, this.renderer)
 
+        const controls = createControls(this.camera, this.renderer.domElement);
+        //controls.target.set(1, 2, 3);
+
         container.append(this.renderer.domElement);
 
         const shape = createShape();
-        const light = createLights();
+        const {directionalLight, ambientLight } = createLights();
 
+        this.loop.updatables.push(controls);
         //this.loop.updatables.push(shape);
         //this.loop.updatables.push(this.camera);
         //this.loop.updatables.push(light);
      
-        this.scene.add(shape, light);
+        this.scene.add(shape, directionalLight, ambientLight);
 
         new Resizer(container, this.camera, this.renderer);
 
