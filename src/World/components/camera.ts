@@ -10,7 +10,7 @@ function createCamera() {
 
     let zoomOut = true;
     let positionValue = 0
-    camera.position.set(0, 0, 15);
+    camera.position.set(10, 10, 10);
 
     camera.tick = (delta) => {
    

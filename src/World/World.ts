@@ -1,7 +1,9 @@
-import { createLights } from './components/lights.js';
+import { createLights } from './components/lights';
 import { createCamera } from './components/camera';
-import { createShape } from './components/shape';
+//import { createMeshGroup  } from './components/meshGroup';
 import { createScene } from './components/scene';
+import { createAxesHelper, createGridHelper } from './components/helpers'
+import { Train } from './components/Train/Train';
 
 import { createRenderer } from './systems/renderer';
 import { Resizer } from './systems/Resizer';
@@ -24,19 +26,24 @@ class World {
         this.loop = new Loop(this.camera, this.scene, this.renderer)
 
         const controls = createControls(this.camera, this.renderer.domElement);
-        //controls.target.set(1, 2, 3);
 
         container.append(this.renderer.domElement);
 
-        const shape = createShape();
+        //const meshGroup = createMeshGroup();
+        const gridHelper = createGridHelper();
+        const axesHelper = createAxesHelper();
         const {directionalLight, ambientLight } = createLights();
-
+        const train = new Train();
+        
         this.loop.updatables.push(controls);
-        //this.loop.updatables.push(shape);
+        this.loop.updatables.push(train);
+        //this.loop.updatables.push(meshGroup);
         //this.loop.updatables.push(this.camera);
         //this.loop.updatables.push(light);
      
-        this.scene.add(shape, directionalLight, ambientLight);
+        this.scene.add(directionalLight, ambientLight);
+        //this.scene.add(meshGroup)
+        this.scene.add(gridHelper, axesHelper, train);
 
         new Resizer(container, this.camera, this.renderer);
 
