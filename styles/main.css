@@ -41,8 +41,6 @@ left: 50%; */
   background-color: lightgray;
 }
 
-
-
 .outher-container {
   /* position: relative; */
   width: 100%;
@@ -52,6 +50,20 @@ left: 50%; */
   display: flex;
   justify-content: center;
   align-items: center;
-  
 
+}
+
+.change-focus {
+  text-align: center;
+  line-height: 1em;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 16px;
+  border: 1px solid gray;
+}
+
+.change-focus:active {
+  transform: scale(0.9);
 }
